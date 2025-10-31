@@ -1,0 +1,49 @@
+---
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## Resume
+
+## Education
+
+#### Columbia University Mailman School of Public Health
+##### Master of Public Health in Epidemiology, Certificate in Applied Biostatistics and Public Health Data Science
+###### Expected May 2026
+* Recipient, Columbia Mailman Public Health Merit Scholarship.
+* Relevant Coursework: Health Systems, Applied Regression I, Data Science I, Epidemiological Studies,Determinants of Health
+
+
+#### William & Mary
+##### Bachelor of Science in Biology, Minor in Public Health
+###### May 2022
+* Recipient, 2022 Ferguson Award, awarded by Department of Biology and Undergraduate Studies Committee.
+* Study Abroad: Geneva, Switzerland, in-depth study about global health and infectious disease management
+
+
+## Experience
+
+#### Health Economist
+##### RTI International
+###### July 2021 - May 2022
+I currently work with a team that supports the Center for Medicare and Medicaid Innovation to help evaluate policy interventions that promote equity and value-based healthcare spending. During this time, I rigorously evaluate Medicare data to analyze current public health challenges for the federal government such as inequities in healthcare coverage.
+
+#### Outbreak Surveillance Intern
+##### Virginia Department of Health
+###### July 2021 - May 2022
+I completed internship at the Virginia Department of Health (VDH). In this role, I worked closely with the Outbreak Surveillance Team to help monitor and research reported outbreak data. I led the design and management of a data collection tool to capture statewide COVID-19 outbreak data from K-12 schools using the software REDCap and the statistical programming language R. Using the surveillance data, I learned how to create data visualizations to highlight the target COVID-19 outbreaks.
+
+#### Social Media and Communications Intern
+##### Sostento Inc.
+###### July 2021 - September 2021
+I served as an intern at Sostento, a non-profit organization committed to increasing equitable access to healthcare services. During this time, I worked with the team to support an initiative aimed at mitigating the disproportionate access to COVID-19 vaccines in under-served communities across the United States. This initiative involved collecting and analyzing surveillance data from a regional network of clinics to identify targets for interventions. 
+
+#### Research Observer
+##### William & Mary Global Research Institute
+###### February 2021 - April 2021
+I joined an undergraduate public health study funded by the Centers for Disease Control and Prevention. I served as a research observer to survey mask use and compliance within the campus community to inform COVID-19 mitigation strategies for Institutions of Higher Education. 
+
+
+Go back to the [homepage](intro.html)

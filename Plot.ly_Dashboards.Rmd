@@ -1,0 +1,25 @@
+---
+title: "Plot.ly_Dashboards"
+output: html_document
+date: "2025-10-30"
+---
+
+```{r, message = FALSE}
+library(tidyverse)
+library(plotly)
+```
+
+importing and cleaning nyc nooa dataset
+```{r}
+noaa_df = 
+ read_csv("nynoaadat.csv", na = c("NA", ".", "")) %>% 
+  janitor::clean_names() %>% 
+  filter(date >= "2008-01-01", id == "USC00300023")
+```
+
+```{r}
+noaa_df %>%
+ggplot(aes(x = date, y = prcp)) +
+  geom_smooth(se = FALSE)
+```
+
