@@ -1,8 +1,6 @@
 ---
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  html_document
 ---
 ## Chelsey Oppan
 
@@ -16,5 +14,5 @@ My name is Chelsey Oppan and I am a second-year Master of Public Health candidat
 Learn more about my academic and professional experience [here](resume.html).
 
 
-Check out an example of a dashboard I created analyzing NYC NOAA data [here](dashboard.flex_dashboard).
+Check out an example of a dashboard I created analyzing NYC resturant inspection data [here]
 

@@ -9,17 +9,61 @@ library(tidyverse)
 library(plotly)
 ```
 
-importing and cleaning nyc nooa dataset
+importing dataset
 ```{r}
-noaa_df = 
- read_csv("nynoaadat.csv", na = c("NA", ".", "")) %>% 
-  janitor::clean_names() %>% 
-  filter(date >= "2008-01-01", id == "USC00300023")
+library(p8105.datasets)
+data("rest_inspec")
 ```
 
 ```{r}
-noaa_df %>%
-ggplot(aes(x = date, y = prcp)) +
-  geom_smooth(se = FALSE)
+rest_inspec %>% 
+  janitor::clean_names() %>%
+  count(boro, grade) %>% 
+  mutate(
+    boro = fct_reorder(boro, n),
+    grade = fct_reorder(grade, n)
+  ) %>% 
+  filter(boro != "0", grade != "NA") %>% 
+  plot_ly(
+    x = ~boro, y = ~n, color = ~grade,
+    type = "bar", colors = ~"viridis"
+  ) %>% 
+  layout(
+    title = "NYC Restaurant Inspection Grades by Borough",
+    xaxis = list(title = "Borough"),
+    yaxis = list(title = "number of restaurants")
+  )
+```
+
+```{r}
+rest_inspec %>%
+  filter(latitude != "0", longitude != "0", boro == "Manhattan") %>%
+    mutate(
+    label = str_c("score:", score)) %>% 
+  plot_ly(
+    x = ~latitude, y = ~longitude, color = ~score,
+    text = ~label,
+    type = "scatter", mode = "markers", alpha = 0.5
+  ) %>% 
+  layout(
+    title = "NYC Restaurant Inspection Scores in Manhattan"
+  )
+```
+
+```{r}
+rest_inspec %>%
+  filter(boro != "0") %>% 
+  drop_na() %>% 
+  mutate(
+    boro = fct_reorder(boro, score)
+  ) %>% 
+  plot_ly(
+    x = ~boro, y = ~score, color = ~boro,
+    type = "box", colors = ~"viridis"
+  ) %>% 
+  layout(
+    title = "NYC Restaurant Inspection Scores by Borough",
+    xaxis = list(title = "boo")
+  )
 ```
 

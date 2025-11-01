@@ -4,37 +4,16 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
-    theme: darkly
 ---
 
-```{r setup, include=FALSE}
-library(flexdashboard)
+```{r setup, include = FALSE}
 library(tidyverse)
 library(plotly)
 library(p8105.datasets)
 ```
 
 ```{r}
-data("nyc_airbnb")
-
-nyc_airbnb = 
-  nyc_airbnb %>% 
-  mutate(
-    rating = review_scores_location /2
-  ) %>% 
-  select(
-    neighbourhood_group, neighbourhood, rating, price, room_type, lat, long
-  ) %>% 
-  filter(
-    neighbourhood_group == "Manhattan",
-    room_type == "Entire home/apt",
-    price <= 500,
-    price >= 100
-  )
-
-  separate(
-    date, into = c("year", "month", "day")) %>% 
-  filter(year == "2007")
+data("rest_inspec")
 ```
 
 
@@ -44,14 +23,17 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-nyc_airbnb %>% 
-  mutate(
-    label = str_c("Price: $", price, "\nRating: ", rating)
-  ) %>% 
+rest_inspec %>%
+  filter(latitude != "0", longitude != "0", boro == "Manhattan") %>%
+    mutate(
+    label = str_c("score:", score)) %>% 
   plot_ly(
-    x = ~lat, y = ~long, color = ~price,
-    text = ~label, 
+    x = ~latitude, y = ~longitude, color = ~score,
+    text = ~label,
     type = "scatter", mode = "markers", alpha = 0.5
+  ) %>% 
+  layout(
+    title = "NYC Restaurant Inspection Scores in Manhattan"
   )
 ```
 
@@ -61,27 +43,42 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
-nyc_airbnb %>%
+rest_inspec %>% 
+  janitor::clean_names() %>%
+  count(boro, grade) %>% 
   mutate(
-    neighbourhood = fct_reorder(neighbourhood, price)
+    boro = fct_reorder(boro, n),
+    grade = fct_reorder(grade, n)
   ) %>% 
+  filter(boro != "0", grade != "NA") %>% 
   plot_ly(
-    x = ~neighbourhood, y = ~price, color = ~neighbourhood,
-    type = "box", colors = ~"viridis"
+    x = ~boro, y = ~n, color = ~grade,
+    type = "bar", colors = ~"viridis"
+  ) %>% 
+  layout(
+    title = "NYC Restaurant Inspection Grades by Borough",
+    xaxis = list(title = "Borough"),
+    yaxis = list(title = "number of restaurants")
   )
 ```
 
 ### Chart C
 
 ```{r}
-nyc_airbnb %>% 
-  count(neighbourhood) %>% 
+rest_inspec %>%
+  filter(boro != "0") %>% 
+  drop_na() %>% 
   mutate(
-    neighbourhood = fct_reorder(neighbourhood, n)
+    boro = fct_reorder(boro, score)
   ) %>% 
   plot_ly(
-    x = ~neighbourhood, y = ~n,
-    type = "bar"
+    x = ~boro, y = ~score, color = ~boro,
+    type = "box", colors = ~"viridis"
+  ) %>% 
+  layout(
+    title = "NYC Restaurant Inspection Scores by Borough",
+    xaxis = list(title = "boo")
   )
 ```
+
 

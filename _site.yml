@@ -1,16 +1,19 @@
 name: "Yay internet!"
 output_dir: "."
 navbar:
-  title: "Home"
   right:
-    - text: "Introduction"
+    - text: "Home"
       href: intro.html
     - text: "Resume"
       href: Resume.html
+    - text: "Dashboard"
+      href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<co2616@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: https://github.com/dashboard
+    - icon: fa-brands fa-linkedin
+      href: https://www.linkedin.com/in/chelsey-oppan-6836b6210
 output:
   html_document:
     theme: cosmo
