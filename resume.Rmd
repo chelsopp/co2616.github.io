@@ -46,4 +46,4 @@ I served as an intern at Sostento, a non-profit organization committed to increa
 I joined an undergraduate public health study funded by the Centers for Disease Control and Prevention. I served as a research observer to survey mask use and compliance within the campus community to inform COVID-19 mitigation strategies for Institutions of Higher Education. 
 
 
-Go back to the [homepage](intro.html)
+Go back to the [homepage](index.html)

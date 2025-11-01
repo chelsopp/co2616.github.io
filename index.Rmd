@@ -1,0 +1,16 @@
+---
+output: 
+  html_document
+---
+## Chelsey Oppan
+
+![](images/my_pic.jpg)
+
+### About
+
+My name is Chelsey Oppan and I am a second-year Master of Public Health candidate at Columbia University’s Mailman School of Public Health. I have a background in health policy and data analysis, with an interest in improving health and access to healthcare for all individuals. When I'm not stressing over school, I enjoying baking new recipes, watching movies, or spending time outdoors.
+
+
+Learn more about my academic and professional experience [here](resume.html).
+
+
